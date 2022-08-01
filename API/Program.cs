@@ -23,6 +23,8 @@ namespace API
                     // MigrateAsync applies any pending migrations for the context to the database.
                     // It also creates the database if it does not already exist.
                     await context.Database.MigrateAsync();
+                    // The following will seed the data when the app starts:
+                    await StoreContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch (Exception ex)
                 {

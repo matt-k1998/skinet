@@ -14,6 +14,7 @@ namespace Infrastructure.Data
 
             if (spec.Criteria != null)
             {
+                // The spec.Criteria could be for example: p => p.ProductTypeId == id
                 query = query.Where(spec.Criteria);
             }
 

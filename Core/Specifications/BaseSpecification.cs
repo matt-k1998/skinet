@@ -14,16 +14,16 @@ namespace Core.Specifications
 
         public BaseSpecification(Expression<Func<T, bool>> criteria)
         {
-            Criteria = criteria;
+            InheritedCriteria = criteria;
         }
 
-        public Expression<Func<T, bool>> Criteria {get; }
-        public List<Expression<Func<T, object>>> Includes {get; } =
+        public Expression<Func<T, bool>> ?InheritedCriteria {get; }
+        public List<Expression<Func<T, object>>> InheritedIncludes {get; } =
             new List<Expression<Func<T, object>>>();
 
         protected void AddInclude(Expression<Func<T, object>> includeExpression)
         {
-            Includes.Add(includeExpression);
+            InheritedIncludes.Add(includeExpression);
         }
     }
 }
